@@ -35,7 +35,6 @@ class APLQuery
      */
     public function __construct($presetObj)
     {
-        
         $post_type_names = get_post_types('',
                                           'names');
         $skip_post_types = array('attachment', 'revision', 'nav_menu_item');
@@ -88,11 +87,11 @@ class APLQuery
                         $arg_query['arg_query_parents'], 
                         $post_type_names);
             }
-            
-            
+      
             
         }
-        
+
+       
         $post_types_used = array();
         $rtnPosts = array();
         if (!empty($private_posts) && !empty($public_posts))
@@ -119,7 +118,7 @@ class APLQuery
         
          
         
-        
+    
         
         
         //// SORT
@@ -139,9 +138,6 @@ class APLQuery
         $ex_arg_query['ignore_sticky_posts'] = $presetObj->_listIgnoreSticky;
         $ex_arg_query['perm'] = 'readable';
         
-        
-        
-
         $APL_Query = new WP_Query($ex_arg_query);
 
         ////var_dump($APL_Query);
@@ -190,6 +186,7 @@ class APLQuery
     private function APLQ_set_query($presetObj, $author_filter, $post_type_names)
     {
         $tmp_postTax = (array) $presetObj->_postTax;
+ 
         if (empty($presetObj->_postParents) && empty($tmp_postTax))
         {
             //// DEFAULT IF POSTTAX AND PARENT IS EMPTY
@@ -198,6 +195,7 @@ class APLQuery
                 $arg_query_parents = array();
                 $arg_query_reqSel[$post_type_name]['selected_taxonomy'] = array(
                     'post_type' => $post_type_name,
+                    'post_type_selected' => $presetObj->_postTypeSelected, //romain
                     'post_status' => $presetObj->_postStatus,
                     'post__not_in' => $presetObj->_listExcludePosts,
                     'nopaging' => true,
@@ -226,6 +224,7 @@ class APLQuery
             {
                 $arg_query_parents[$parent_index] = array(
                     'post_type' => get_post_type($parentID),
+                    'post_type_selected' => $presetObj->_postTypeSelected, //romain
                     'post_parent' => $parentID,
                     'post_status' => $presetObj->_postStatus,
                     'post__not_in' => $presetObj->_listExcludePosts,
@@ -246,8 +245,6 @@ class APLQuery
             $arg_query_reqSel = array();
             foreach ($presetObj->_postTax as $post_type_name => $post_type_value)
             {
-
-
                 $arg_selected = array();
                 $arg_required = array();
                 $count_req = 0;
@@ -298,6 +295,7 @@ class APLQuery
                             $arg_selected['post_status'] = $presetObj->_postStatus;
                             $arg_selected['order'] = $presetObj->_listOrder;
                             $arg_selected['orderby'] = $presetObj->_listOrderBy;
+                            $arg_selected['post_type_selected'] = $presetObj->_postTypeSelected; //romain
 
                             $arg_selected['post_type'] = $post_type_name;
                             $arg_selected['tax_query']['relation'] = 'OR';
@@ -331,7 +329,7 @@ class APLQuery
                     }
                 
 
-                }
+                }//loop
                 unset($taxonomy_name);
                 unset($taxonomy_value);
                 unset($count_req);
@@ -339,7 +337,6 @@ class APLQuery
 
                 $arg_query_reqSel[$post_type_name]['required_taxonomy'] = $arg_required;
                 $arg_query_reqSel[$post_type_name]['selected_taxonomy'] = $arg_selected;
-
 
                 unset($arg_required);
                 unset($arg_selected);
@@ -352,25 +349,38 @@ class APLQuery
             'arg_query_parents' => $arg_query_parents,
             'arg_query_reqSel' => $arg_query_reqSel
         );
-        
+       
         return $arg_query;
     }
     private function APLQ_get_posts($arg_query_reqSel, $arg_query_parents, $post_type_names)
     {
         //// GET WP_QUERIES
-        
+        $arg_query_reqSel['problematiques']['selected_taxonomy']['post_type']='etudes_de_cas';
+       
         $posts_selected = array();
         $posts_required = array();
         foreach ($arg_query_reqSel as $post_type_name => $post_type_query)
         {
             //$a1 = $post_type_query['selected_taxonomy'];
             
-            
+            //romain
+            $post_type_selected = $arg_query_reqSel[$post_type_name]['selected_taxonomy']['post_type_selected'];
+
+
             $APL_Query_selected = new WP_Query($post_type_query['selected_taxonomy']);
             if (isset($APL_Query_selected->posts))
             {
-                $posts_selected[$post_type_name] = $APL_Query_selected->posts;
+                //romain
+                //$posts_selected[$post_type_name] = $APL_Query_selected->posts;
+                if(isset($post_type_selected)){
+                    $posts_selected[$post_type_selected] = $APL_Query_selected->posts;
+                }else{
+                    $posts_selected[$post_type_name] = $APL_Query_selected->posts;
+                }
             }
+
+
+
             //wp_reset_postdata();
             unset($APL_Query_selected);
             

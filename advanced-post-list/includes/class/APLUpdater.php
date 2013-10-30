@@ -87,7 +87,7 @@ class APLUpdater
         
         $rtnPresetObj->_catsSelected            = $old_presetObj->categories;
         $rtnPresetObj->_tagsSelected            = $old_presetObj->tags;
-        $rtnPresetObj->_postType                = $old_presetObj->post_type;
+        $rtnPresetObj->_postTypeSelected        = $old_presetObj->post_type_selected;
         $rtnPresetObj->_listOrderBy             = $old_presetObj->orderby;
         $rtnPresetObj->_listOrder               = $old_presetObj->order;
         $rtnPresetObj->_listAmount              = $old_presetObj->numberposts;

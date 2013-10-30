@@ -39,7 +39,14 @@ class APLPresetObj
      * @since 0.1.0
      */
     public $_listOrder;
-    
+
+   /**
+     * @var string
+     * @since 0.1.0
+     * romain
+     */
+    public $_postTypeSelected; 
+     
     /**
      * @var string
      * @since 0.1.0
@@ -121,6 +128,7 @@ class APLPresetObj
     public $_after;
     
     
+   
     
     
 
@@ -134,6 +142,8 @@ class APLPresetObj
         
         $this->_listOrderBy = (string)'';
         $this->_listOrder = (string) '';
+        //romain
+        $this->_postTypeSelected = (string) '';
         
         $this->_postVisibility = (array) array('public');
         $this->_postStatus = (array) array('publish');//Changed
@@ -149,6 +159,7 @@ class APLPresetObj
         $this->_before = (string) '';
         $this->_content = (string) '';
         $this->_after = (string) '';
+
         
     }
     
@@ -187,8 +198,10 @@ class APLPresetObj
         $this->_tagsRequired = 'false'; //Boolean Unchecked
         $this->_listOrder = ''; //Desc
         $this->_listOrderBy = ''; //(string) Type
+        //romain
+        $this->_postTypeSelected = ''; //(string) post or page
+
         $this->_listAmount = ''; //(int) howmany to display
-        $this->_postType = ''; //(string) post or page
         $this->_postParent = '';
         $this->_postExcludeCurrent = 'false'; //Boolean Unchecked
     }
@@ -220,7 +233,9 @@ class APLPresetObj
         
         $this->_listOrderBy = (string)'';
         $this->_listOrder = (string) '';
-        
+        //romain
+        $this->_postTypeSelected = (string) '';
+
         $this->_postVisibility = (array) array('public');
         $this->_postStatus = (array) array('publish');//Changed
         $this->_userPerm = (string) 'readable';//Added
@@ -235,6 +250,8 @@ class APLPresetObj
         $this->_before = (string) '';
         $this->_content = (string) '';
         $this->_after = (string) '';
+
+
     }
 }
 

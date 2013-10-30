@@ -1624,10 +1624,10 @@ class APLCore
      * <li value="7">Store the post status.</li>
      * <li value="8">Store the exclude current boolean.</li>
      * <li value="9">Store the Before, Content, & After HTML/JavaScript/Shortcode</li>
-      content.
+     * content.
      * <li value="10">Overwrite or save the preset.</li>
      * <li value="11">Create and store data for the varible returned to the</li>
-      AJAX function.
+     * AJAX function.
      * <li value="12">echo the data returned though a json_encode method.</li>
      * </ol>
      */
@@ -1680,6 +1680,8 @@ class APLCore
         // Step 6
         $presetObj->_listOrder = $_POST['order']; //(string)
         $presetObj->_listOrderBy = $_POST['orderBy']; //(string)
+        //romain
+        $presetObj->_postTypeSelected = stripslashes($_POST['postTypeSelected']); //(string)
         // Step 7
         $presetObj->_postVisibility = json_decode(stripslashes($_POST['postVisibility']));//(array) => (string)
         $presetObj->_postStatus = json_decode(stripslashes($_POST['postStatus']));//(array) => (string) //MODIFIED 
@@ -2039,7 +2041,7 @@ class APLCore
                 //$a = $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->include_terms;
                 if ($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->include_terms == true)
                 {
-                    $count = count($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms);
+                   $count = count($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms);
                     foreach ($taxonomy_object->terms as $term_ID)
                     {
                         $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms[$count] = $term_ID;

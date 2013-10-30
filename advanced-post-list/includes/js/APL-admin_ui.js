@@ -1,5 +1,5 @@
-jQuery(document).ready(function($)
-{
+jQuery(document).ready(function($){
+
     // postTax: is the Post Type and Taxonomy structure
     var post_types = apl_admin_ui_settings.post_types;
     var postTax = apl_admin_ui_settings.postTax;
@@ -349,7 +349,8 @@ jQuery(document).ready(function($)
     
     //(ELEMENT - List Amount)
 
-    $("#slctOrderBy").multiselect({
+    //romain
+    $("#slctPostTypeSelected").multiselect({
         multiple: false,
         header: false,
         noneSelectedText: "Select an Option",
@@ -359,8 +360,8 @@ jQuery(document).ready(function($)
         
         click:function(event, ui)
         {
-            $("#slctOrderBy").val(ui.value);
-            $("#slctOrderBy").multiselect('refresh');
+            $("#slctPostTypeSelected").val(ui.value);
+            $("#slctPostTypeSelected").multiselect('refresh');
         }
     });
     $("#slctOrder").multiselect({
@@ -379,6 +380,20 @@ jQuery(document).ready(function($)
         }
     });
 
+    $("#slctOrderBy").multiselect({
+        multiple: false,
+        header: false,
+        noneSelectedText: "Select an Option",
+        selectedList: 1,
+        buttonWidth: 132,
+        menuWidth: 192,
+        
+        click:function(event, ui)
+        {
+            $("#slctOrderBy").val(ui.value);
+            $("#slctOrderBy").multiselect('refresh');
+        }
+    });
     //(ELEMENT - Ignore Sticky Posts)
     
     //(ELEMENT - Exclude Current Post)

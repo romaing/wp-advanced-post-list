@@ -1,11 +1,11 @@
 <?php
 
 /*
-  Plugin Name: Advanced Post List
+  Plugin Name: Advanced Post List (romain)
   Version: 0.3.b7
-  Plugin URI: http://wordpress.org/plugins/advanced-post-list/
+  Plugin URI: xxxxhttp://wordpress.org/plugins/advanced-post-list/
   Description: Create highly customizable post lists to display to your users and visitors. Provides a wide array of static settings and dynamic features. Also supports Custom Post Types and Taxonomies. 
-  Author: EkoJr
+  Author: EkoJr (modifier par romain)
 
   == Copyright ==
   Advanced Post List by EkoJr (email: ekojr1337@gmail.com)
@@ -25,7 +25,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 /**
- * @package advanced-post-list
+ * @package advanced-post-list-romain
  * @since 0.1.0
  * @version 0.2.0 - Added more require functions for additional pages.
  * @version 0.3.0 - Added APLQuery Class, APLUpdater Class

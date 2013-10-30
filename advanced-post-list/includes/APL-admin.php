@@ -30,6 +30,7 @@ function APL_post_tax_content()
         unset($post_type_names[$value]);
     }
 
+
     foreach ($post_type_names as $post_type_name)
     {
         $htmlContent .= APL_post_tax_get_accordion_content($post_type_name);
@@ -37,6 +38,38 @@ function APL_post_tax_content()
 
     echo $htmlContent;
 }
+
+//romain
+function APL_post_type_selected_content()
+{
+    $htmlContent = '';
+    $post_type_objects = get_post_types('',
+                                      'objects');
+
+    $skip_post_types = array('attachment', 'revision', 'nav_menu_item');
+    foreach ($skip_post_types as $value)
+    {
+        unset( $post_type_objects[$value] );
+    }
+    $htmlContent .= APL_post_type_selected_get_select_content($post_type_objects);
+    echo $htmlContent;
+}
+
+//romain
+function APL_post_type_selected_get_select_content($post_type_objects)
+{
+    $rtnString = '';
+    $rtnString .= '<label for="slctPostTypeSelected">Post type seletionné de sortie : </label>';
+    $rtnString .= '<select id="slctPostTypeSelected" >';
+    foreach ($post_type_objects as $post_type_object)
+    {
+        //$rtnString .= '<option id="slctChkCurrent-' . $post_type_name . '" value="' . $post_type_name  . '"><b>' . $post_type_name  . '</b></option>';
+        $rtnString .= '<option  value="' . $post_type_object->name  . '">' . $post_type_object->labels->singular_name  . '</option>';
+    }    
+    $rtnString .= '</select>';   
+    return $rtnString;
+}
+
 
 function APL_post_tax_get_accordion_content($post_type_name)
 {
@@ -325,6 +358,12 @@ function APL_get_cat_hierchy($post_tax_settings = array('post_type_name' => 'pos
 <div id="divCustomPostTaxonomyContent" style="font-size: 100%; width: 640px">
     <?php
         APL_post_tax_content();
+    ?>
+</div>
+<br/>
+<div id="divPostTypeContent" style="font-size: 100%; width: 640px">
+    <?php
+        APL_post_type_selected_content();
     ?>
 </div>
 <br/>

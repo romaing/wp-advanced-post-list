@@ -205,7 +205,7 @@ jQuery(document).ready(function($){
         $('#divPreview').html("");
         var newValues = presetObj[id];
         $("#txtPresetName").val(id);
-
+console.log(newValues);
         set_postTax(newValues._postTax);
         set_parent(newValues._postParents);
 
@@ -214,6 +214,10 @@ jQuery(document).ready(function($){
         $('#slctOrderBy').multiselect('refresh');
         $("#slctOrder").val(newValues["_listOrder"]);
         $('#slctOrder').multiselect('refresh');
+
+        //romain
+        $("#slctPostTypeSelected").val(newValues["_postTypeSelected"]);
+        $('#slctPostTypeSelected').multiselect('refresh');
         
         var postVisibilityArr = jQuery.makeArray(newValues._postVisibility);
         $('#cboPostVisibility').val(postVisibilityArr);
@@ -545,7 +549,9 @@ jQuery(document).ready(function($){
         data.count = $("#txtDisplayAmount").val();
         data.orderBy = $("#slctOrderBy").val();
         data.order = $("#slctOrder").val();
-        
+        //romain
+        data.postTypeSelected = $("#slctPostTypeSelected").val();
+                
         data.postVisibility = $('#cboPostVisibility').val();//array
         data.postVisibility = JSON.stringify(data.postVisibility);
         data.postStatus = $("#cboPostStatus").val();//MODIFIED //array
@@ -585,6 +591,7 @@ jQuery(document).ready(function($){
         data.content = $("#txtContent").val();
         data.after = $("#txtAfterList").val();
         
+
         
         setPHPOutput(data.presetName);
       
