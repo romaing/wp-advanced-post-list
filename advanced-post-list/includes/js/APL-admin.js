@@ -205,7 +205,7 @@ jQuery(document).ready(function($){
         $('#divPreview').html("");
         var newValues = presetObj[id];
         $("#txtPresetName").val(id);
-console.log(newValues);
+
         set_postTax(newValues._postTax);
         set_parent(newValues._postParents);
 

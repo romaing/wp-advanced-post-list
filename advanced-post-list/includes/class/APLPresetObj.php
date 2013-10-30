@@ -199,9 +199,9 @@ class APLPresetObj
         $this->_listOrder = ''; //Desc
         $this->_listOrderBy = ''; //(string) Type
         //romain
-        $this->_postTypeSelected = ''; //(string) post or page
-
+        $this->_postTypeSelected = ''; //(string) Name post-type
         $this->_listAmount = ''; //(int) howmany to display
+        $this->_postType = ''; //(string) post or page
         $this->_postParent = '';
         $this->_postExcludeCurrent = 'false'; //Boolean Unchecked
     }

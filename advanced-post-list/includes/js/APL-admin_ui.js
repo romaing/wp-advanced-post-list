@@ -1,4 +1,5 @@
-jQuery(document).ready(function($){
+jQuery(document).ready(function($)
+{
 
     // postTax: is the Post Type and Taxonomy structure
     var post_types = apl_admin_ui_settings.post_types;
