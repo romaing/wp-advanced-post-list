@@ -59,7 +59,7 @@ function APL_post_type_selected_content()
 function APL_post_type_selected_get_select_content($post_type_objects)
 {
     $rtnString = '';
-    $rtnString .= '<label for="slctPostTypeSelected">Post type seletionné de sortie : </label>';
+    $rtnString .= '<label for="slctPostTypeSelected">Selected the "post-type" of output : </label>';
     $rtnString .= '<select id="slctPostTypeSelected" >';
     foreach ($post_type_objects as $post_type_object)
     {
