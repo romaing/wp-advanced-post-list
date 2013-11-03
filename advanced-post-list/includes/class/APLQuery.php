@@ -354,24 +354,19 @@ class APLQuery
     }
     private function APLQ_get_posts($arg_query_reqSel, $arg_query_parents, $post_type_names)
     {
-        //// GET WP_QUERIES
-        $arg_query_reqSel['problematiques']['selected_taxonomy']['post_type']='etudes_de_cas';
-       
+        //// GET WP_QUERIES       
         $posts_selected = array();
         $posts_required = array();
         foreach ($arg_query_reqSel as $post_type_name => $post_type_query)
         {
             //$a1 = $post_type_query['selected_taxonomy'];
-            
-            //romain
-            $post_type_selected = $arg_query_reqSel[$post_type_name]['selected_taxonomy']['post_type_selected'];
-
 
             $APL_Query_selected = new WP_Query($post_type_query['selected_taxonomy']);
             if (isset($APL_Query_selected->posts))
             {
                 //romain
                 //$posts_selected[$post_type_name] = $APL_Query_selected->posts;
+                $post_type_selected = $arg_query_reqSel[$post_type_name]['selected_taxonomy']['post_type_selected'];
                 if(isset($post_type_selected)){
                     $posts_selected[$post_type_selected] = $APL_Query_selected->posts;
                 }else{
