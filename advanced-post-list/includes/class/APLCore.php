@@ -712,67 +712,67 @@ class APLCore
      * 2 => hierarchical,
      * 3 => taxonomies //may add extra support to get other varibles. For now 
      *                  // I'll just add the names as the default has it.
-      stdClass Object
-      (
-      [labels] => stdClass Object
-      (
-        [name] => string
-        [singular_name] => string
-        [add_new] => string
-        [add_new_item] => string
-        [edit_item] => string
-        [new_item] => string
-        [view_item] => string
-        [search_items] => string
-        [not_found] => string
-        [not_found_in_trash] => string
-        [parent_item_colon] =>
-        [all_items] => string
-        [menu_name] => string
-        [name_admin_bar] => string
-      )
-      [description] => string
-      [publicly_queryable] => boolean
-      [exclude_from_search] => boolean
-      [capability_type] => string
-      [map_meta_cap] => boolean
-      [_builtin] => boolean
-      [_edit_link] => string
-      [hierarchical] => boolean
-      [public] => boolean
-      [rewrite] => boolean
-      [has_archive] => boolean
-      [query_var] => boolean
-      [register_meta_box_cb] => Null
-      [taxonomies] => Array() (CHANGED) - Gets taxonomy Attributes
-      [show_ui] => boolean
-      [menu_position] => Null
-      [menu_icon] => Null
-      [permalink_epmask] => int
-      [can_export] => boolean
-      [show_in_nav_menus] => boolean
-      [show_in_menu] => boolean
-      [show_in_admin_bar] => boolean
-      [name] => string
-      [cap] => stdClass Object
-      (
-        [edit_post] => string
-        [read_post] => string
-        [delete_post] => string
-        [edit_posts] => string
-        [edit_others_posts] => string
-        [publish_posts] => string
-        [read_private_posts] => string
-        [read] => string
-        [delete_posts] => string
-        [delete_private_posts] => string
-        [delete_published_posts] => string
-        [delete_others_posts] => string
-        [edit_private_posts] => string
-        [edit_published_posts] => string
-      )
-      [label] => string
-      )
+     * stdClass Object
+     * (
+     * [labels] => stdClass Object
+     * (
+     *   [name] => string
+     *   [singular_name] => string
+     *   [add_new] => string
+     *   [add_new_item] => string
+     *   [edit_item] => string
+     *   [new_item] => string
+     *   [view_item] => string
+     *   [search_items] => string
+     *   [not_found] => string
+     *   [not_found_in_trash] => string
+     *   [parent_item_colon] =>
+     *   [all_items] => string
+     *   [menu_name] => string
+     *   [name_admin_bar] => string
+     * )
+     * [description] => string
+     * [publicly_queryable] => boolean
+     * [exclude_from_search] => boolean
+     * [capability_type] => string
+     * [map_meta_cap] => boolean
+     * [_builtin] => boolean
+     * [_edit_link] => string
+     * [hierarchical] => boolean
+     * [public] => boolean
+     * [rewrite] => boolean
+     * [has_archive] => boolean
+     * [query_var] => boolean
+     * [register_meta_box_cb] => Null
+     * [taxonomies] => Array() (CHANGED) - Gets taxonomy Attributes
+     * [show_ui] => boolean
+     * [menu_position] => Null
+     * [menu_icon] => Null
+     * [permalink_epmask] => int
+     * [can_export] => boolean
+     * [show_in_nav_menus] => boolean
+     * [show_in_menu] => boolean
+     * [show_in_admin_bar] => boolean
+     * [name] => string
+     * [cap] => stdClass Object
+     * (
+     *   [edit_post] => string
+     *   [read_post] => string
+     *   [delete_post] => string
+     *   [edit_posts] => string
+     *   [edit_others_posts] => string
+     *   [publish_posts] => string
+     *   [read_private_posts] => string
+     *   [read] => string
+     *   [delete_posts] => string
+     *   [delete_private_posts] => string
+     *   [delete_published_posts] => string
+     *   [delete_others_posts] => string
+     *   [edit_private_posts] => string
+     *   [edit_published_posts] => string
+     * )
+     * [label] => string
+     * )
      */
     private function APL_get_post_types($attr_names = array())
     {
@@ -916,49 +916,49 @@ class APLCore
      * @param type $post_type_name
      * @return stdClass 
      * 
-      stdClass Object
-      (
-      [hierarchical] => boolean
-      [update_count_callback] => string
-      [rewrite] => array()
-      [query_var] => string
-      [public] => boolean
-      [show_ui] => boolean
-      [show_tagcloud] => boolean
-      [_builtin] => boolean
-      [labels] => stdClass Object
-      (
-        [name] =>  string
-        [singular_name] => string
-        [search_items] => string
-        [popular_items] =>
-        [all_items] => string
-        [parent_item] => string
-        [parent_item_colon] => string
-        [edit_item] => string
-        [view_item] => string
-        [update_item] => string
-        [add_new_item] => string
-        [new_item_name] => string
-        [separate_items_with_commas] =>
-        [add_or_remove_items] =>
-        [choose_from_most_used] =>
-        [menu_name] =>  string
-        [name_admin_bar] => string
-      )
-      [show_in_nav_menus] => boolean
-      [cap] => stdClass Object
-      (
-        [manage_terms] => string
-        [edit_terms] => string
-        [delete_terms] => string
-        [assign_terms] => string
-      )
-      [name] => string
-      [object_type] => Array()
-      [label] => string
-      [terms] => Array() (ADDED) - Can return terms plus attributes.
-      )
+     * stdClass Object
+     * (
+     * [hierarchical] => boolean
+     * [update_count_callback] => string
+     * [rewrite] => array()
+     * [query_var] => string
+     * [public] => boolean
+     * [show_ui] => boolean
+     * [show_tagcloud] => boolean
+     * [_builtin] => boolean
+     * [labels] => stdClass Object
+     * (
+     *   [name] =>  string
+     *   [singular_name] => string
+     *   [search_items] => string
+     *   [popular_items] =>
+     *   [all_items] => string
+     *   [parent_item] => string
+     *   [parent_item_colon] => string
+     *   [edit_item] => string
+     *   [view_item] => string
+     *   [update_item] => string
+     *   [add_new_item] => string
+     *   [new_item_name] => string
+     *   [separate_items_with_commas] =>
+     *   [add_or_remove_items] =>
+     *   [choose_from_most_used] =>
+     *   [menu_name] =>  string
+     *   [name_admin_bar] => string
+     * )
+     * [show_in_nav_menus] => boolean
+     * [cap] => stdClass Object
+     * (
+     *   [manage_terms] => string
+     *   [edit_terms] => string
+     *   [delete_terms] => string
+     *   [assign_terms] => string
+     * )
+     * [name] => string
+     * [object_type] => Array()
+     * [label] => string
+     * [terms] => Array() (ADDED) - Can return terms plus attributes.
+     * )
      */
     private function APL_get_taxonomies($post_type_name = '',
                                         $attr_names = array())
@@ -2038,17 +2038,22 @@ class APLCore
             //$a = $presetObj->_postTax->$post_obj_post_type;
             foreach ($post_obj->taxonomies as $taxonomy_name=>$taxonomy_object)
             {
-                //$a = $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->include_terms;
-                if ($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->include_terms == true)
+                //romain
+                //test category exite
+                if ( isset($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name) )
                 {
-                   $count = count($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms);
-                    foreach ($taxonomy_object->terms as $term_ID)
+                //$a = $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->include_terms;
+                    if ($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->include_terms == true)
                     {
-                        $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms[$count] = $term_ID;
-                        $count++;
+                       $count = count($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms);
+                        foreach ($taxonomy_object->terms as $term_ID)
+                        {
+                            $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms[$count] = $term_ID;
+                            $count++;
+                        }
+                        //REMOVES ANY DUPLICATES THAT MAY HAVE BEEN ADDED
+                        $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms = array_unique($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms);
                     }
-                    //REMOVES ANY DUPLICATES THAT MAY HAVE BEEN ADDED
-                    $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms = array_unique($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms);
                 }
             }
         }

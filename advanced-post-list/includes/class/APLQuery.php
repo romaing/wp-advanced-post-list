@@ -195,7 +195,8 @@ class APLQuery
                 $arg_query_parents = array();
                 $arg_query_reqSel[$post_type_name]['selected_taxonomy'] = array(
                     'post_type' => $post_type_name,
-                    'post_type_selected' => $presetObj->_postTypeSelected, //romain
+                    //romain
+                    'post_type_selected' => $presetObj->_postTypeSelected, 
                     'post_status' => $presetObj->_postStatus,
                     'post__not_in' => $presetObj->_listExcludePosts,
                     'nopaging' => true,
@@ -214,9 +215,6 @@ class APLQuery
         else
         {
 
-
-
-
             //// POST PARENTS
             //TODO Add category and tag capabilities
             $arg_query_parents = array();
@@ -224,7 +222,8 @@ class APLQuery
             {
                 $arg_query_parents[$parent_index] = array(
                     'post_type' => get_post_type($parentID),
-                    'post_type_selected' => $presetObj->_postTypeSelected, //romain
+                    //romain
+                    //'post_type_selected' => $presetObj->_postTypeSelected, 
                     'post_parent' => $parentID,
                     'post_status' => $presetObj->_postStatus,
                     'post__not_in' => $presetObj->_listExcludePosts,
@@ -295,9 +294,12 @@ class APLQuery
                             $arg_selected['post_status'] = $presetObj->_postStatus;
                             $arg_selected['order'] = $presetObj->_listOrder;
                             $arg_selected['orderby'] = $presetObj->_listOrderBy;
-                            $arg_selected['post_type_selected'] = $presetObj->_postTypeSelected; //romain
 
                             $arg_selected['post_type'] = $post_type_name;
+                            //romain
+                            $arg_selected['post_type_selected'] = $presetObj->_postTypeSelected; 
+                            $arg_selected['post_type'] = $presetObj->_postTypeSelected; 
+
                             $arg_selected['tax_query']['relation'] = 'OR';
                             $arg_selected['tax_query'][$count_sel]['taxonomy'] = $taxonomy_name;
 
@@ -354,13 +356,12 @@ class APLQuery
     }
     private function APLQ_get_posts($arg_query_reqSel, $arg_query_parents, $post_type_names)
     {
-        //// GET WP_QUERIES       
+        //// GET WP_QUERIES
         $posts_selected = array();
         $posts_required = array();
         foreach ($arg_query_reqSel as $post_type_name => $post_type_query)
         {
             //$a1 = $post_type_query['selected_taxonomy'];
-
             $APL_Query_selected = new WP_Query($post_type_query['selected_taxonomy']);
             if (isset($APL_Query_selected->posts))
             {
